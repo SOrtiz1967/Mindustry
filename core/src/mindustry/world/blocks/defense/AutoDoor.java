@@ -62,7 +62,7 @@ public class AutoDoor extends Wall{
                 team.data().tree().intersect(rect.setSize(size * tilesize + triggerMargin * 2f).setCenter(x, y), units);
                 boolean shouldOpen = units.contains(groundCheck);
 
-                //don't close while something is inside, or it gets killed by the solid tile
+                //don't close while something is inside
                 if(open != shouldOpen && (shouldOpen || !Units.anyEntities(tile))){
                     Call.autoDoorToggle(tile, shouldOpen);
                 }
