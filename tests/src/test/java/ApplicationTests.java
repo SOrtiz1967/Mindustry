@@ -1006,6 +1006,9 @@ public class ApplicationTests{
         world.loadMap(testMap);
         state.set(State.playing);
         state.rules.limitMapArea = false;
+        //other tests can leave the time saturated, which would stop door timers from ever firing
+        Time.setInternalTime(0d);
+        Time.delta = 1f;
 
         //find an open area so units aren't pushed around by static walls
         Tile tile = null;
